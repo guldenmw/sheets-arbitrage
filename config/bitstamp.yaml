@@ -1,0 +1,11 @@
+currencies:
+  crypto:
+    - btc
+    - ltc
+     xrp
+  fiat:
+    usd: 'usd'
+    eur: 'eur'
+
+pairs:
+  - {}
