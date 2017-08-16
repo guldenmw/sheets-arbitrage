@@ -1,11 +1,20 @@
+import sys
 import luno
 import json
 import pygsheets
 import pusherclient
+import sys
 
 from pprint import pprint
+from pygsheets.exceptions import RequestError
+from googleapiclient.errors import HttpError
 
-credentials = "C:\\Users\\Wilhelm\\PycharmProjects\\arbitrage\\config\\service_creds.json"
+if sys.platform == "win32":
+    credentials = "C:\\Users\\Wilhelm\\PycharmProjects\\arbitrage\\config\\service_creds.json"
+else:
+    credentials = "/home/guldenmw/PycharmProjects/arbitrage/config/service_creds.json"
+
+sys.path.remove("/sunrise/projects/scripts/repository/release/modules")
 
 
 class Arbitrage(object):
@@ -19,6 +28,7 @@ class Arbitrage(object):
 
         self.simple_gap = None
 
+        self.gc = None
         self.lw = None
         self.pusher = None
 
@@ -61,6 +71,8 @@ class Arbitrage(object):
 
             print("Luno: R%s" % self.luno_new_ticker)
             print("Bitstamp: $%s" % self.bitstamp_new_ticker)
+            print("\n")
+            print("-"*30)
             # if self.luno_new_ticker and self.bitstamp_new_ticker:
             #     self.simple_gap = ((self.luno_new_ticker-self.bitstamp_new_ticker)/self.bitstamp_new_ticker)
             #     print("{}%".format(round(self.simple_gap), 6))
@@ -68,7 +80,7 @@ class Arbitrage(object):
             try:
                 self.update_spreadsheet()
 
-            except:
+            except (RequestError, TypeError, HttpError):
                 pass
 
             # Set your previous value at the end of the loop.
@@ -79,10 +91,11 @@ class Arbitrage(object):
         luno_cell = "E4"
         bitstamp_cell = "D5"
 
-        gc = self.auth_sheets()
+        if not self.gc:
+            self.gc = self.auth_sheets()
 
-        doc = gc.open_by_key("1N1MDj7mXLbv_-LUj1peug53P9a2gh5jdD5BnPrOQVLU")
-        pub_doc = gc.open_by_key("1ixwK7eoY2Txz490NtiKLCfbbaBX_Fu70oFi1ESkHFgQ")
+        doc = self.gc.open_by_key("1N1MDj7mXLbv_-LUj1peug53P9a2gh5jdD5BnPrOQVLU")
+        pub_doc = self.gc.open_by_key("1ixwK7eoY2Txz490NtiKLCfbbaBX_Fu70oFi1ESkHFgQ")
 
         ex_sheet = doc.worksheet_by_title("Exchanges")
         pub_ex_sheet = pub_doc.worksheet_by_title("Exchanges")
@@ -97,7 +110,7 @@ class Arbitrage(object):
 
     @staticmethod
     def auth_sheets():
-        return pygsheets.authorize(outh_file=credentials, no_cache=True)
+        return pygsheets.authorize(service_file=credentials, no_cache=True)
 
 
 # if __name__ == '__main__':
