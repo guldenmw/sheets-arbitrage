@@ -1,0 +1,124 @@
+exchanges:
+  Luno:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTZAR"
+
+  AltcoinTrader:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCZAR"
+      BCC:
+        ticker: "BCCZAR"
+      ETH:
+        ticker: "ETHZAR"
+      LTC:
+        ticker: "LTCZAR"
+      ZEC:
+        ticker: "ZECZAR"
+      XRP:
+        ticker: "XRPZAR"
+      DASH:
+        ticker: "DASHZAR"
+      NMC:
+        ticker: "NMCZAR"
+
+  Bitstamp:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCUSD"
+      ETH:
+        ticker: "ETHUSD"
+      LTC:
+        ticker: "LTCUSD"
+      XRP:
+        ticker: "XRPUSD"
+
+  Bitfinex:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCUSD"
+      BTC:
+        ticker: "BTCUSD"
+      BTC:
+        ticker: "BTCUSD"
+      BTC:
+        ticker: "BTCUSD"
+      BTC:
+        ticker: "BTCUSD"
+      BTC:
+        ticker: "BTCUSD"
+      BTC:
+        ticker: "BTCUSD"
+      BTC:
+        ticker: "BTCUSD"
+
+  Kraken:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTUSD"
+
+  Quoine:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCUSD"
+
+  Bittrex:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCUSDT"
+
+  Bithumb:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTZAR"
+
+  Gemini:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTZAR"
+
+  BTCC:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTZAR"
+
+  CoinOne:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTZAR"
+
+  OKCoin:
+    curreny_pairs:
+      BTC:
+        ticker: "SPOT_BTCUSD"
+
+  Korbit:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTZAR"
+
+  BTCC_Spot:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCUSD"
+
+  BitMEX:
+    curreny_pairs:
+      BTC:
+        ticker: "XBTUSD"
+
+  Gdax:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCUSD"
+
+  Gatecoin:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCHKD"
+
+  Poloniex:
+    curreny_pairs:
+      BTC:
+        ticker: "BTCUSDT"
