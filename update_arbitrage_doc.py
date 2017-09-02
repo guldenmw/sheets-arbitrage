@@ -100,6 +100,15 @@ class Arbitrage(object):
         return pygsheets.authorize(outh_file=credentials, no_cache=True)
 
 
+class ArbitrageTable(object):
+    def __init__(self):
+        self.sheet_name = "ArbitrageTable"
+
+    def get_sheet_name(self):
+        return self.sheet_name
+
+
+
 # if __name__ == '__main__':
 new = Arbitrage()
 
